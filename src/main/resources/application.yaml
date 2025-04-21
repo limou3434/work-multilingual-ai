@@ -1,0 +1,26 @@
+# 配置框架(使用 java -jar app.jar --spring.profiles.active=develop | release | production 来启动项目, 其中 release 有时间就拿来测试, 而 production 存储在 Github 上, 每次修改 Github 配置就需要刷新(这个有时间可以优化为无需重启))
+spring:
+  ## 配置环境
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:develop} # 默认启动开发环境
+  ## 配置名称
+  application:
+    name: work-multilingual-ai
+  ## 配置智能
+  ai:
+    ollama:
+      base-url: http://127.0.0.1:11434
+      chat:
+        model: llama3.2
+
+# 配置服务
+server:
+  ## 项目名称
+  project-name: work-multilingual-ai
+  ## 配置地址
+  address: 127.0.0.1
+  ## 配置端口
+  port: 8000
+  ## 配置路由
+  servlet:
+    context-path: /work_multilingual_ai_api # 这样所有接口都会带上前缀
