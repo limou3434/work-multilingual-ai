@@ -8,10 +8,23 @@ spring:
     name: work-multilingual-ai
   ## 配置智能
   ai:
+    chat:
+      client:
+        enabled: false # 是否允许自动导入模型
     ollama:
-      base-url: http://127.0.0.1:11434
+      base-url: http://127.0.0.1:11434 # ollama 部署地址
       chat:
-        model: llama3.2
+        model: DeepSeek-R1 # ollama 默认自动导入的具体模型
+
+# 配置日志
+logging:
+  level:
+    org:
+      springframework:
+        ai:
+          chat:
+            client:
+              advisor: DEBUG
 
 # 配置服务
 server:
